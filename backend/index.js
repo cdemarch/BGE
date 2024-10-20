@@ -15,6 +15,9 @@ app.use((req, res, next) => {
   next()
 })
 
+// ROUTES
+app.use('/api/user', userRoutes)
+
 // connect to database
 mongoose.connect(process.env.MONGO_URI)
   // listen for requests
@@ -26,5 +29,3 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.log("Mongo connection error:", err));
 
 
-// ROUTES
-app.use('/api/user', userRoutes)
